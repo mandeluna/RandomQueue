@@ -81,6 +81,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
         else {
             head = head.next;
+            head.prev = null;
         }
         return item;
     }
@@ -99,6 +100,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
         else {
             tail = tail.prev;
+            tail.next = null;
         }
         return item;
     }

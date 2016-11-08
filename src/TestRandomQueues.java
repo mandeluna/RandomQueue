@@ -21,4 +21,15 @@ public class TestRandomQueues {
 		assertTrue(q.isEmpty());
 	}
 
+	@Test
+	public void testMaximumSize() {
+        RandomizedQueue<Integer> q = new RandomizedQueue<>();
+        for (int i=0; i < 1000; i++) {
+            q.enqueue(i);
+        }
+        for (int i=0; i < 995; i++) {
+            q.dequeue();
+        }
+        assertTrue(q.size() == 5);
+	}
 }

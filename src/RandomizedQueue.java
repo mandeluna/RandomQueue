@@ -52,9 +52,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item item = items[index];
         // swap removed item and index at end of queue
         items[index] = items[count - 1];
+        items[count - 1] = null;
         --count;
         if (count > 0 && count == items.length / 4) {
-            resize(items.length / 2);
+            resize(count * 2);
         }
         return item;
     }
@@ -96,7 +97,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
             @Override
             public Item next() {
-                if (index > num_items) {
+                if (index >= num_items) {
                     throw new java.util.NoSuchElementException();
                 }
                 return shuffled[index++];
